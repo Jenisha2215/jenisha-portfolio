@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenisha R | UI Portfolio</title>
+<style>
+:root {
+  --accent: #9b6bff;
+  --bg: #090215;
+  --card: #141025;
+  --border: rgba(153, 122, 255, 0.35);
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+}
+
+/* ---------- GLOBAL ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at 25% 0%, #2b155b, #060013 70%);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* main wrapper for everything under nav */
+.page-wrap {
+  width: 100%;
+  max-width: 960px;
+  padding: 0 18px 40px;
+}
+
+/* ---------- TOP NAV ---------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  max-width: 960px;
+  background: rgba(9, 2, 21, 0.94);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.top-links a {
+  margin-left: 12px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--muted);
+  border: 1px solid transparent;
+  font-size: 0.82rem;
+  transition: 0.25s;
+}
+
+.top-links a:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: rgba(153,122,255,0.18);
+  transform: translateY(-1px);
+}
+
+/* ---------- HERO / PROFILE ---------- */
+.hero {
+  display: flex;
+  justify-content: center;
+  margin: 46px auto 30px;
+}
+
+.profile-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-align: center;
+  width: 340px;
+  padding: 18px 14px 22px;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.9s ease-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(18px);}
+  to   {opacity: 1; transform: translateY(0);}
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  margin-bottom: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+.name {
+  font-size: 1.24rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.status {
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.details {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.hero-links a {
+  display: inline-block;
+  background: rgba(155,107,255,0.1);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 5px 13px;
+  margin: 3px;
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.hero-links a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- SECTIONS COMMON ---------- */
+section.content-block {
+  background: rgba(13, 9, 32, 0.96);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 16px 15px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.section-tag {
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.section-text {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* ---------- ABOUT ---------- */
+#about p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+
+/* ---------- SKILLS ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.skill-card {
+  background: rgba(10, 8, 30, 0.95);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 7px 8px;
+  font-size: 0.8rem;
+  transition: 0.22s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+}
+
+.skill-title {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+/* ---------- PROJECTS ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.project-card {
+  background: rgba(7, 5, 24, 0.98);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 8px 9px;
+  font-size: 0.8rem;
+  transition: 0.22s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(153,122,255,0.95);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.75);
+}
+
+.project-pill {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.project-title {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.project-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ---------- CONTACT ---------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 12px;
+}
+
+@media (max-width: 720px) {
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.contact-list dt {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.contact-list dd {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0 0 4px 0;
+}
+
+/* email highlight */
+.contact-list a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s;
+}
+.contact-list a:hover {
+  background: rgba(153,122,255,0.2);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* fake form (design only) */
+.fake-label {
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+.fake-input, .fake-textarea {
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-radius: 10px;
+  border: 1px dashed var(--border);
+  padding: 7px 8px;
+  background: rgba(8, 6, 25, 0.95);
+  margin-bottom: 6px;
+}
+.fake-textarea { height: 52px; }
+
+.note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  margin: 20px 0 8px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<header class="top-nav">
+  <div class="logo">JENISHA.R</div>
+  <nav class="top-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="page-wrap">
+
+  <!-- HERO PROFILE -->
+  <section class="hero">
+    <div class="profile-card">
+      <img src="profile.jpg" class="profile-img" alt="Jenisha R">
+      <div class="name">Jenisha R</div>
+      <div class="role">BCA Student • UI Design Aspirant</div>
+      <div class="status">Actively learning UI Design</div>
+      <div class="details">
+        📍 Nagercoil, Tamil Nadu<br>
+        🎯 Goal: Build a strong UI portfolio
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="content-block">
+    <div class="section-header">
+      <h2 class="section-title">About me</h2>
+      <span class="section-tag">Intro</span>
+    </div>
+    <p>
+      I’m <strong>Jenisha&nbsp;R</strong>, a <strong>BCA student</strong> at
+      Scott Christian College, Nagercoil. I’m interested in
+      <strong>UI design</strong> and simple front-end development. I like clean
+      layouts, soft colors and designs that feel calm and easy to use.
+    </p>
+    <p>
+      Right now I’m focusing on building my basics — understanding layout,
+      spacing, typography and creating small practice screens for my portfolio.
+      Step by step, I want to grow into a confident UI designer.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="content-block">
+    <div class="section-header">
+      <h2 class="section-title">Skills</h2>
+      <span class="section-tag">Learning path</span>
+    </div>
+    <div class="section-text">
+      Skills I’m slowly improving to become better in UI design:
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-title">Design Tools</div>
+        <div>Figma (learning), Canva, simple screen mockups.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-title">Layout &amp; Spacing</div>
+        <div>Working with alignment, white space and grid-based layouts.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-title">Typography</div>
+        <div>Choosing fonts, heading hierarchy and readable body text.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-title">Color &amp; Theme</div>
+        <div>Purple based themes, contrast and soft gradients.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-title">Interaction Ideas</div>
+        <div>Hover effects, button states and small micro-animations.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-title">Front-end Basics</div>
+        <div>HTML + CSS basics to turn a design into a web page.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="content-block">
+    <div class="section-header">
+      <h2 class="section-title">Projects</h2>
+      <span class="section-tag">Mini work</span>
+    </div>
+    <div class="section-text">
+      Sample UI ideas. Later you can replace these with your real projects and links.
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-pill">Mobile UI</div>
+        <div class="project-title">Login &amp; Signup Screens</div>
+        <p class="project-desc">
+          Simple, clean login and signup pages with focus on spacing and button styles.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-pill">Web UI</div>
+        <div class="project-title">Personal Landing Page</div>
+        <p class="project-desc">
+          One-page site introducing me, my skills and goals, first designed in Figma.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-pill">Dashboard UI</div>
+        <div class="project-title">Stats Overview Card</div>
+        <p class="project-desc">
+          Small dashboard layout with cards, numbers and filters in a purple theme.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="content-block">
+    <div class="section-header">
+      <h2 class="section-title">Contact</h2>
+      <span class="section-tag">Reach out</span>
+    </div>
+   
+
+    <div class="contact-layout">
+      <div class="contact-list">
+        <dl>
+          <dt>Phone</dt>
+          <dd>+91-9363571505 <!-- 👉 change to your real number --></dd>
+
+          <dt>Email</dt>
+          <dd>
+            <a href="mailto:jenishajeni142@gmail.com">
+              jenishajeni142@gmail.com
+            </a>
+          </dd>
+
+          <dt>Address</dt>
+          <dd>
+            129, Crown Street,vattiyarvillai<br>
+            Nagercoil, Kanyakumari District,<br>
+            Tamil Nadu, India.
+            <!-- 👉 change to your real address -->
+          </dd>
+
+          <dt>What I’m looking for</dt>
+          <dd>
+            Internships, freelance-style beginner work, and real-project practice
+            where I can grow as a UI designer.
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <div class="fake-label">Name</div>
+        <div class="fake-input">(Sample contact field – not active yet)</div>
+
+        <div class="fake-label">Email</div>
+        <div class="fake-input">(Demo email field – design only)</div>
+
+        <div class="fake-label">Message</div>
+        <div class="fake-textarea">
+          (This is a UI sample. A real form can be connected later.)
+        </div>
+
+        <div class="note">
+          This form is only for design. In future it can be linked to an email service or backend.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2025 Jenisha R • Passionate about clean and creative design 💜
+  </div>
+
+</div>
+</body>
+</html>
